@@ -2,5 +2,22 @@
   "manifest_version": 3,
   "name": "yomu",
   "version": "0.1.0",
-  "action": { "default_popup": "index.html" }
+  "action": {
+    "default_popup": "index.html"
+  },
+  "icons": {
+    "32": "book_icon32.png",
+    "48": "book_icon48.png",
+    "128": "book_icon128.png"
+  },
+  "background": {
+    "service_worker": "src/background.ts"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*/*", "http://*/*"],
+      "js": ["src/content_script.ts"]
+    }
+  ],
+  "permissions": ["contextMenus", "scripting", "activeTab"]
 }
